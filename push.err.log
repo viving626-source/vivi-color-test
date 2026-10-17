@@ -1,0 +1,2 @@
+fatal: expired_token: This 'device_code' has expired. [https://docs.github.com/developers/apps/authorizing-oauth-apps#error-codes-for-the-device-flow]
+fatal: User canceled device code authentication
