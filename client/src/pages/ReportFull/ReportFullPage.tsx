@@ -16,6 +16,7 @@ import PartHairstyle from './PartHairstyle';
 import PartStyle from './PartStyle';
 import PartAiStyle from './PartAiStyle';
 import { ReportHeader, ReportFooter } from './ReportHeader';
+import ShareCard from '@client/src/pages/ReportPreview/ShareCard';
 
 import type { RecordResponse } from '@shared/api.interface';
 
@@ -143,6 +144,10 @@ const ReportFullPage = () => {
           mainStyle={styleResult.mainStyle}
           keywords={styleResult.keywords}
         />
+
+        <div className="no-print max-w-md mx-auto">
+          <ShareCard season={seasonResult} />
+        </div>
 
         <PartSeason season={seasonResult} />
         <PartFacial

@@ -4,6 +4,7 @@ import { logger } from '@lark-apaas/client-toolkit/logger';
 import { ChevronRight, RefreshCw, Lock, Sparkles, FileText, Wand2 } from 'lucide-react';
 
 import PartStylePreview from '@client/src/pages/ReportFull/PartStylePreview';
+import ShareCard from '@client/src/pages/ReportPreview/ShareCard';
 
 
 import { Button } from '@/components/ui/button';
@@ -329,6 +330,8 @@ function ReportPreviewPage() {
             </p>
           </div>
         </div>
+
+        <ShareCard season={seasonResult} />
 
         <div className="bg-cream-light rounded-2xl border border-border shadow-sm p-6 space-y-5">
           <div className="flex items-center gap-2">
