@@ -1,0 +1,53 @@
+{
+  "id": "vivi_macau_ai_style_photo_edit_1",
+  "pluginKey": "@official-plugins/ai-image-to-image",
+  "pluginVersion": "1.0.23",
+  "name": "Vivi Macau AI风格改造合成照",
+  "description": "基于用户上传的人像照片，结合测试推荐的风格（如韩系轻熟、法式温柔等）进行风格改造，生成用户本人的风格效果照，支持1-3张参考图输入、风格文字描述、图片比例配置。",
+  "icon": "",
+  "paramsSchema": {
+    "type": "object",
+    "properties": {
+      "user_portrait": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array",
+        "format": "plugin-image-url",
+        "description": "用户上传的人像照片（1张）"
+      },
+      "style_reference_images": {
+        "type": "array",
+        "format": "plugin-image-url",
+        "description": "风格参考图（最多2张，可选）",
+        "items": {
+          "type": "string"
+        }
+      },
+      "style_description": {
+        "type": "string",
+        "description": "风格文字描述，如韩系轻熟、法式温柔等"
+      },
+      "image_ratio": {
+        "type": "string",
+        "description": "生成图片的比例，可选值：1:1、4:3、3:4、16:9、9:16、3:2、2:3"
+      }
+    },
+    "required": [
+      "user_portrait",
+      "style_description"
+    ]
+  },
+  "formValue": {
+    "watermark": false,
+    "prompt": "你是专业的人像风格改造设计师，擅长在保留人物五官、脸型等核心特征完全不变的前提下，对照片进行整体风格化改造。\n\n请根据以下要求对用户人像照片进行风格改造：\n人像照片：{{input.user_portrait}}\n风格要求：{{input.style_description}}\n\n改造要求：\n1. 人物核心特征（五官、脸型、表情、肤色底子）必须100%保留，不能改变人物外貌，不能变成其他人的样子\n2. 整体风格完全按照指定风格进行调整，包括妆容、发型、服装、背景、光影、色调等元素\n3. 效果自然真实，没有明显的AI合成痕迹，看起来像是真实拍摄的照片\n4. 整体质感高级，细节丰富，画面清晰",
+    "ratio": "{{input.image_ratio}}",
+    "referenceImages": [
+      "{{input.user_portrait}}",
+      "{{input.style_reference_images}}"
+    ]
+  },
+  "createdAt": 1791907797811,
+  "updatedAt": 1791907797811,
+  "createdBy": 7590888924906556375
+}

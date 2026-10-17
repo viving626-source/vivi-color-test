@@ -1,0 +1,36 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "./tailwind-theme.css";
+@import "./typography.css";
+
+/* Tailwind v4 源碼掃描範圍（Vite root = client） */
+@source "../**/*.{ts,tsx,css}";
+
+/* ===== 列印 / 另存 PDF 樣式：瀏覽器原生「列印→儲存為 PDF」 ===== */
+@media print {
+  /* 操作列、按鈕、互動元件不印出 */
+  .no-print,
+  .no-print * {
+    display: none !important;
+  }
+  html,
+  body {
+    background: #ffffff !important;
+  }
+  /* 報告各區塊避免標題/卡片被截斷 */
+  .rounded-3xl,
+  .rounded-2xl,
+  .rounded-xl,
+  section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  /* 去掉粘性定位與陰影，確保連續排版 */
+  .sticky {
+    position: static !important;
+  }
+  /* 圖片不超出版面、不失真 */
+  img {
+    max-width: 100% !important;
+  }
+}

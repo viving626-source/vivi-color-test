@@ -1,0 +1,42 @@
+{
+  "id": "vivi_macau_ai_style_transform_2",
+  "pluginKey": "@official-plugins/ai-image-to-image",
+  "pluginVersion": "1.0.23",
+  "name": "Vivi Macau 人像风格改造合成",
+  "description": "基于用户上传的人像照片，结合季型色彩与风格定位进行人像风格迁移/改造，保留面部特征，替换为推荐的妆容、发型发色、穿搭与整体氛围",
+  "icon": "",
+  "paramsSchema": {
+    "type": "object",
+    "properties": {
+      "style_description": {
+        "description": "风格描述，包含妆容、发型、穿搭、色系、氛围等详细要求（如柔夏知性、韩系轻熟、法式温柔等）",
+        "type": "string"
+      },
+      "image_ratio": {
+        "type": "string",
+        "description": "图片比例，支持的值：1:1、4:3、3:4、16:9、9:16、3:2、2:3，默认3:4竖版人像"
+      },
+      "user_portrait": {
+        "type": "array",
+        "format": "plugin-image-url",
+        "description": "用户上传的人像参考照片",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "required": [
+      "user_portrait",
+      "style_description"
+    ]
+  },
+  "formValue": {
+    "ratio": "{{input.image_ratio}}",
+    "referenceImages": "{{input.user_portrait}}",
+    "watermark": true,
+    "prompt": "你是专业的人像风格改造专家，请基于参考图片进行人像风格迁移：\n1. 必须完整保留用户的面部特征和五官轮廓，确保人像可识别为本人\n2. 按照以下风格要求进行改造：{{input.style_description}}\n3. 具体改造内容包括：\n   - 妆容：匹配风格定位的合适妆容\n   - 发型发色：符合风格的发型设计和发色\n   - 穿搭：适配风格的服装搭配\n   - 整体氛围：营造对应的风格氛围和背景\n4. 改造效果要自然真实，无明显拼接痕迹，色彩和谐统一"
+  },
+  "createdAt": 1791907819328,
+  "updatedAt": 1791907819328,
+  "createdBy": 7590888924906556375
+}

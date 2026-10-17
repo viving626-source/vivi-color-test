@@ -1,0 +1,4 @@
+project_id = "vivi-color-test"
+
+[functions.color-api]
+verify_jwt = false
